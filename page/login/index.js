@@ -11,9 +11,14 @@ document.querySelector('.btn').addEventListener('click', () => {
   const form = document.querySelector('.login-form')
   const data = serialize(form, { hash: true, empty: true })
   console.log(data)
-  // 验证手机长度
+  // 判断手机长度
   if (data.mobile.length !== 11) {
     myAlert(false, '手机号长度要11位')
+    return
+  }
+  // 判断验证码长度
+  if (data.code.length !== 6) {
+    myAlert(false, '验证码长度要6位')
     return
   }
 
